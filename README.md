@@ -10,7 +10,7 @@ De code, de UI-teksten en de commentaren zijn Engelstalig — dat is de taal waa
 
 ## 1. Installatie
 
-Vereist Node.js 20 of nieuwer (ontwikkeld en getest op Node 22).
+Vereist Node.js 22 of nieuwer (ontwikkeld en getest op Node 22; CI draait op 22 en 24). Node 20 is end-of-life en wordt niet meer ondersteund.
 
 ```bash
 npm install
