@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Operations console for managing and observing AI agents that perform software engineering work.",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -17,18 +20,18 @@
   },
   "devDependencies": {
     "@types/node": "^22.20.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "@vitejs/plugin-react": "^4.3.3",
-    "autoprefixer": "^10.4.20",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.5.4",
     "eslint": "^8.57.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.14",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3",
-    "vite": "^5.4.11"
+    "postcss": "^8.5.26",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21"
   }
 }
