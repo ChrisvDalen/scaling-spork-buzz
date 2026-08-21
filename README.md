@@ -10,7 +10,9 @@ De code, de UI-teksten en de commentaren zijn Engelstalig — dat is de taal waa
 
 ## 1. Installatie
 
-Vereist Node.js 20 of nieuwer (ontwikkeld en getest op Node 22).
+Vereist Node.js 24.15 of nieuwer. De frontend gebruikt React 19, Vite 8,
+TypeScript 6 en Tailwind CSS 4. TypeScript 7 volgt zodra de ESLint-toolchain
+deze versie officieel ondersteunt.
 
 ```bash
 npm install

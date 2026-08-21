@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { cn } from '@/lib/cn';
 import {
   formatBytes,
@@ -69,16 +69,23 @@ export function AgentDetailDrawer({
   readonly onClose: () => void;
   readonly now: number;
 }) {
+  if (!agentId) return null;
+
+  return <AgentDetailContent key={agentId} agentId={agentId} onClose={onClose} now={now} />;
+}
+
+function AgentDetailContent({
+  agentId,
+  onClose,
+  now,
+}: {
+  readonly agentId: AgentId;
+  readonly onClose: () => void;
+  readonly now: number;
+}) {
   const { data, sendAgentCommand, resolveApproval } = useControlCenter();
   const [tab, setTab] = useState<TabId>('overview');
-
-  // Opening a different agent starts on Overview rather than inheriting
-  // whichever tab was left open on the previous one.
-  useEffect(() => {
-    setTab('overview');
-  }, [agentId]);
-
-  const detail: AgentDetail | undefined = agentId ? data.agentDetails[agentId] : undefined;
+  const detail: AgentDetail | undefined = data.agentDetails[agentId];
 
   const task: Task | undefined = useMemo(() => {
     if (!detail?.agent.currentTaskId) return undefined;
@@ -86,7 +93,7 @@ export function AgentDetailDrawer({
   }, [data.tasks, detail]);
 
   const approvals = useMemo(
-    () => (agentId ? data.approvals.filter((request) => request.agentId === agentId) : []),
+    () => data.approvals.filter((request) => request.agentId === agentId),
     [data.approvals, agentId],
   );
 
@@ -94,7 +101,7 @@ export function AgentDetailDrawer({
     ? data.repositories.find((candidate) => candidate.id === detail.agent.repositoryId)
     : undefined;
 
-  if (!agentId || !detail) return null;
+  if (!detail) return null;
 
   const { agent } = detail;
   const statusMeta = AGENT_STATUS_META[agent.status];
