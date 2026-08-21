@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react';
 import { cn } from '@/lib/cn';
 import { VIEWS, VIEW_META, type ViewId } from '@/navigation/routes';
 import { useControlCenter } from '@/state/ControlCenterContext';
@@ -12,7 +13,7 @@ import {
   IconTasks,
 } from '@/components/ui/Icon';
 
-const VIEW_ICONS: Record<ViewId, (props: { size?: number }) => JSX.Element> = {
+const VIEW_ICONS: Record<ViewId, (props: { size?: number }) => ReactElement> = {
   overview: IconGauge,
   agents: IconAgents,
   tasks: IconTasks,

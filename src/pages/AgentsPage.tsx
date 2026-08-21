@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { AgentCard } from '@/components/agents/AgentCard';
 import { AgentDetailDrawer } from '@/components/agents/AgentDetailDrawer';
 import { AgentTable } from '@/components/agents/AgentTable';
@@ -23,10 +23,6 @@ export function AgentsPage({ selectedId }: { readonly selectedId?: string }) {
   const [selected, setSelected] = useState<AgentId | null>(
     selectedId ? toAgentId(selectedId) : null,
   );
-
-  useEffect(() => {
-    if (selectedId) setSelected(toAgentId(selectedId));
-  }, [selectedId]);
 
   const filtered = useMemo(() => {
     const needle = search.trim().toLowerCase();

@@ -25,7 +25,9 @@ function Shell() {
         <TopBar view={route.view} />
         <main className="scrollbar-thin flex min-h-0 flex-1 flex-col overflow-y-auto bg-surface-50 p-3 dark:bg-surface-900">
           {route.view === 'overview' && <OverviewPage onNavigate={goTo} />}
-          {route.view === 'agents' && <AgentsPage selectedId={route.id} />}
+          {route.view === 'agents' && (
+            <AgentsPage key={route.id ?? 'agents'} selectedId={route.id} />
+          )}
           {route.view === 'tasks' && <TasksPage selectedId={route.id} />}
           {route.view === 'approvals' && <ApprovalsPage />}
           {route.view === 'activity' && <ActivityPage />}
